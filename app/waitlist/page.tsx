@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Waitlist() {
@@ -29,14 +30,20 @@ export default function Waitlist() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-black px-6">
-      <div className="w-full max-w-md">
-        <Link
-          href="/"
-          className="mb-12 block text-sm tracking-wide text-white/60 hover:text-white"
-        >
-          &larr; back
+    <main className="flex min-h-screen flex-col bg-black px-6">
+      <div className="py-8 text-center">
+        <Link href="/">
+          <Image
+            src="/archive-logo.webp"
+            alt="Archive Media"
+            width={400}
+            height={200}
+            className="inline-block w-[120px]"
+          />
         </Link>
+      </div>
+
+      <div className="mx-auto w-full max-w-md flex-1 flex flex-col justify-center">
 
         {!submitted ? (
           <>
@@ -88,7 +95,22 @@ export default function Waitlist() {
               thank you
             </h1>
             <p className="text-sm text-white/60">
-              we&apos;ll be in touch soon.
+              we&apos;ll be in touch soon
+            </p>
+            <p className="mt-4 flex items-center gap-2 text-sm text-white/60">
+              More from Archive at{" "}
+              <a
+                href="https://www.instagram.com/archive.media/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex text-white/60 transition-colors hover:text-white"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="5" />
+                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
             </p>
           </div>
         )}

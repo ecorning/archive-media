@@ -30,7 +30,7 @@ export default function Home() {
             contact
           </a>
           <a
-            href="https://archive.media/comingsoon"
+            href="https://archive.media/waitlist"
             className="text-[clamp(10px,1.4vw,14px)] tracking-wide text-white/90 underline underline-offset-4 hover:text-white"
           >
             join the waitlist
@@ -39,7 +39,7 @@ export default function Home() {
       </div>
 
       {/* Coming soon */}
-      <p className="mt-16 text-sm tracking-wide text-white/90">
+      <p className="mt-[5vh] text-[clamp(8px,1.2vw,12px)] uppercase tracking-[0.2em] text-white/50">
         coming soon
       </p>
 
