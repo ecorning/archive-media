@@ -23,15 +23,6 @@ export default async function GuestsPage() {
 
   return (
     <main className="min-h-screen bg-black px-6 py-16 md:px-12 lg:px-20">
-      <div className="mx-auto mb-12 max-w-6xl">
-        <Link
-          href="/"
-          className="text-sm tracking-wide text-white/60 underline underline-offset-4 hover:text-white"
-        >
-          &larr; home
-        </Link>
-      </div>
-
       <Link href="/" className="mb-6 flex justify-center">
         <Image
           src="/archive-logo.webp"
@@ -39,7 +30,7 @@ export default async function GuestsPage() {
           width={400}
           height={200}
           priority
-          className="w-[180px] md:w-[252px] lg:w-[306px]"
+          className="w-[120px]"
         />
       </Link>
       <p className="mb-12 text-center text-[10px] tracking-[0.15em] uppercase text-white/40">

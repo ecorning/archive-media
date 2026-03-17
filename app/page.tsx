@@ -5,10 +5,10 @@ export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center bg-black px-6">
       {/* Main row: tagline | logo | contact */}
-      <div className="flex w-full max-w-6xl flex-row items-center justify-between">
+      <div className="flex w-full max-w-6xl flex-row items-center justify-center gap-[clamp(43px,11vw,166px)]">
         <Link
           href="/guests"
-          className="flex-1 text-[clamp(10px,1.4vw,14px)] tracking-wide text-white/90 underline underline-offset-4 hover:text-white"
+          className="flex-1 whitespace-nowrap text-right text-[clamp(10px,1.4vw,14px)] tracking-wide text-white/90 underline underline-offset-4 hover:text-white"
         >
           building an archive of stories
         </Link>
@@ -19,19 +19,13 @@ export default function Home() {
           width={400}
           height={200}
           priority
-          className="w-[clamp(120px,30vw,440px)] shrink"
+          className="w-[clamp(120px,30vw,440px)] shrink-0"
         />
 
-        <div className="flex flex-1 items-center justify-end gap-[clamp(8px,1.5vw,16px)]">
+        <div className="flex flex-1">
           <a
-            href="mailto:contact@archive.media"
-            className="text-[clamp(10px,1.4vw,14px)] tracking-wide text-white/90 underline underline-offset-4 hover:text-white"
-          >
-            contact
-          </a>
-          <a
-            href="https://archive.media/waitlist"
-            className="text-[clamp(10px,1.4vw,14px)] tracking-wide text-white/90 underline underline-offset-4 hover:text-white"
+            href="/comingsoon"
+            className="whitespace-nowrap text-[clamp(10px,1.4vw,14px)] tracking-wide text-white/90 underline underline-offset-4 hover:text-white"
           >
             join the waitlist
           </a>
@@ -44,7 +38,7 @@ export default function Home() {
       </p>
 
       {/* Social icons */}
-      <div className="absolute bottom-8 flex items-center gap-2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2">
         <a href="https://www.instagram.com/archive.media/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
