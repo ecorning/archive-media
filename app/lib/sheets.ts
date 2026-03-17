@@ -1,9 +1,14 @@
 import { google } from "googleapis";
 
 const SHEET_ID = "1zJz3NmvicW7mPqa6rtfQ2CPb3Aw_6EpyreFu8Gx6afM";
-const RANGE = "'Pivot'!A:A";
+const RANGE = "'Pivot'!A:C";
 
-export async function getGuestNames(): Promise<string[]> {
+export interface Guest {
+  name: string;
+  profession?: string;
+}
+
+export async function getGuestNames(): Promise<Guest[]> {
   const auth = new google.auth.GoogleAuth({
     credentials: {
       client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
@@ -21,15 +26,16 @@ export async function getGuestNames(): Promise<string[]> {
   const rows = res.data.values;
   if (!rows || rows.length === 0) return [];
 
-  const names: string[] = [];
+  const guestMap = new Map<string, Guest>();
 
   // Skip header row (index 0), take all non-empty names from column A
   for (let i = 1; i < rows.length; i++) {
     const name = (rows[i]?.[0] || "").trim();
-    if (name) {
-      names.push(name);
+    const profession = (rows[i]?.[2] || "").trim();
+    if (name && !guestMap.has(name)) {
+      guestMap.set(name, { name, ...(profession ? { profession } : {}) });
     }
   }
 
-  return [...new Set(names)].sort((a, b) => a.localeCompare(b));
+  return [...guestMap.values()].sort((a, b) => a.name.localeCompare(b.name));
 }

@@ -1,17 +1,15 @@
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center bg-black px-6">
       {/* Main row: tagline | logo | contact */}
       <div className="flex w-full max-w-6xl flex-row items-center justify-center gap-[clamp(43px,11vw,166px)]">
-        <Link
-          href="/guests"
-          className="flex-1 whitespace-nowrap text-right text-[clamp(10px,1.4vw,14px)] tracking-wide text-white/90 underline underline-offset-4 hover:text-white"
+        <span
+          className="flex-1 whitespace-nowrap text-right text-[clamp(10px,1.4vw,14px)] tracking-wide text-white/90"
         >
           building an archive of stories
-        </Link>
+        </span>
 
         <Image
           src="/archive-logo.webp"

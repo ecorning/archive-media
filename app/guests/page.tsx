@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { getGuestNames } from "@/app/lib/sheets";
+import { getGuestNames, type Guest } from "@/app/lib/sheets";
+import GuestList from "./guest-list";
 
 export const metadata: Metadata = {
   title: "Dream Guests | Archive Media",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 export const revalidate = 3600;
 
 export default async function GuestsPage() {
-  let guests: string[] = [];
+  let guests: Guest[] = [];
   let error = false;
 
   try {
@@ -51,16 +52,7 @@ export default async function GuestsPage() {
           No guests to display.
         </p>
       ) : (
-        <div className="mx-auto max-w-7xl columns-1 gap-x-12 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
-          {guests.map((name) => (
-            <p
-              key={name}
-              className="mb-2 text-sm leading-relaxed tracking-wide text-white/80"
-            >
-              {name}
-            </p>
-          ))}
-        </div>
+        <GuestList guests={guests} />
       )}
 
       <footer className="mt-20 border-t border-white/10 pt-8 text-center">
