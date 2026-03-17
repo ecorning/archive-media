@@ -19,7 +19,7 @@ export default function GuestList({ guests }: { guests: Guest[] }) {
     <div className={`relative min-h-screen px-6 py-16 transition-colors duration-300 md:px-12 lg:px-20 ${light ? "bg-white" : "bg-black"}`}>
       <button
         onClick={() => setLight(!light)}
-        className={`absolute right-6 top-6 text-[10px] uppercase tracking-[0.15em] transition-colors ${light ? "text-black/30 hover:text-black/50" : "text-white/30 hover:text-white/50"}`}
+        className={`absolute right-6 top-6 text-[10px] uppercase tracking-[0.15em] transition-colors ${light ? "text-black/40 hover:text-black/70" : "text-white/40 hover:text-white/70"}`}
       >
         {light ? "Dark Mode" : "Print Mode"}
       </button>
