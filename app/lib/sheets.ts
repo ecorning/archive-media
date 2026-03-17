@@ -1,11 +1,12 @@
 import { google } from "googleapis";
 
 const SHEET_ID = "1zJz3NmvicW7mPqa6rtfQ2CPb3Aw_6EpyreFu8Gx6afM";
-const RANGE = "'Pivot'!A:C";
+const RANGE = "'Pivot'!A:D";
 
 export interface Guest {
   name: string;
   profession?: string;
+  category?: string;
 }
 
 export async function getGuestNames(): Promise<Guest[]> {
@@ -32,8 +33,13 @@ export async function getGuestNames(): Promise<Guest[]> {
   for (let i = 1; i < rows.length; i++) {
     const name = (rows[i]?.[0] || "").trim();
     const profession = (rows[i]?.[2] || "").trim();
+    const category = (rows[i]?.[3] || "").trim();
     if (name && !guestMap.has(name)) {
-      guestMap.set(name, { name, ...(profession ? { profession } : {}) });
+      guestMap.set(name, {
+        name,
+        ...(profession ? { profession } : {}),
+        ...(category ? { category } : {}),
+      });
     }
   }
 

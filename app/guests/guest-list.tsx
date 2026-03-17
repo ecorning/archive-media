@@ -6,10 +6,10 @@ import type { Guest } from "@/app/lib/sheets";
 export default function GuestList({ guests }: { guests: Guest[] }) {
   const [active, setActive] = useState<string | null>(null);
 
-  const categories = [...new Set(guests.map((g) => g.profession).filter(Boolean))].sort() as string[];
+  const categories = [...new Set(guests.map((g) => g.category).filter(Boolean))].sort() as string[];
 
   const filtered = active
-    ? guests.filter((g) => g.profession === active)
+    ? guests.filter((g) => g.category === active)
     : guests;
 
   return (
@@ -36,7 +36,7 @@ export default function GuestList({ guests }: { guests: Guest[] }) {
         ))}
       </div>
 
-      <div className="mx-auto max-w-5xl columns-1 gap-x-12 sm:columns-2 lg:columns-3">
+      <div className="mx-auto max-w-7xl columns-1 gap-x-12 sm:columns-2 md:columns-3 lg:columns-4">
         {filtered.map((guest) => (
           <p
             key={guest.name}
