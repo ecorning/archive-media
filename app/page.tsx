@@ -25,7 +25,7 @@ export default function Home() {
             href="/comingsoon"
             className="whitespace-nowrap text-[clamp(10px,1.4vw,14px)] tracking-wide text-white/90 underline underline-offset-4 hover:text-white"
           >
-            join the waitlist
+            Be the first to listen
           </a>
         </div>
       </div>
